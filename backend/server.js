@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
@@ -13,20 +15,17 @@ const client = new OAuth2Client(
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "http://localhost",
-  }),
-);
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "diet_plan"
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  port: process.env.MYSQLPORT
 });
 
 db.connect((err) => {
@@ -1721,7 +1720,7 @@ let notifikasiTerakhir = "";
 // =============================
 // CEK JADWAL DARI DATABASE
 // =============================
-async function cekJadwal() {
+/*async function cekJadwal() {
 
     try {
 
@@ -1759,22 +1758,22 @@ async function cekJadwal() {
     }
 
 }
+*/
+
+// // =============================
+// // JALANKAN
+// // =============================
+// cekJadwal();
 
 
-// =============================
-// JALANKAN
-// =============================
-cekJadwal();
+// // =============================
+// // CEK SETIAP 30 DETIK
+// // =============================
+// setInterval(() => {
 
+//     cekJadwal();
 
-// =============================
-// CEK SETIAP 30 DETIK
-// =============================
-setInterval(() => {
-
-    cekJadwal();
-
-}, 30000);
+// }, 30000);
 
 const PORT = process.env.PORT || 3000;
 
