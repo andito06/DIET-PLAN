@@ -1,0 +1,113 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* animasi card */
+@keyframes fadeUp {
+
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up{
+    animation: fadeUp 1s ease;
+}
+
+/* animasi floating */
+@keyframes floating {
+
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-10px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.floating{
+    animation: floating 8s ease-in-out infinite;
+}
+
+/* animasi muter */
+@keyframes rotateSlow {
+
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.rotate-slow{
+    animation: rotateSlow 180s linear infinite;
+}
+
+
+
+
+
+/* Animasi icon centang */
+.success-animation{
+animation: pop 0.8s ease;
+}
+
+@keyframes pop{
+    0%{
+        transform: scale(0);
+    }
+    70%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/* Pulse lingkaran */
+.pulse-ring{
+    animation: pulse 3s;
+}
+
+        @keyframes pulse{
+            0%{
+                transform: scale(1);
+                opacity: 1;
+            }
+            70%{
+                transform: scale(1.08);
+                opacity: .6;
+            }
+            100%{
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+       
+
+.finish-circle{
+    transition:all .5s ease;
+}
+
+.finish-circle.done{
+    transform:scale(1.2);
+    box-shadow:0 0 20px rgba(166,193,135,.6);
+}
+
+.finish-text{
+    transition:.4s;
+}
