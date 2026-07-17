@@ -15,7 +15,15 @@ const client = new OAuth2Client(
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost",
+    "http://localhost:80",
+    "https://diet-plan-production-07c6.up.railway.app"
+  ],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
